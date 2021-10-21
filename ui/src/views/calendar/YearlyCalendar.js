@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Item1 = () => {
+const YearlyCalendar = () => {
 
   return (
     <>
@@ -8,4 +8,4 @@ const Item1 = () => {
   )
 }
 
-export default Item1
+export default YearlyCalendar
