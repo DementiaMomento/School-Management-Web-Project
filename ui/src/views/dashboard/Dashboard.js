@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { CButton, CCard, CCardBody, CCardHeader, CCol, CContainer, CRow } from '@coreui/react'
 
 
@@ -9,12 +10,13 @@ const Dashboard = () => {
     <>
     <CRow className="align-items-md-stretch">
     <CCol md={4}>
+    <Link to={'/browser'} style={{ color: '#3c4b64', textDecoration: 'none' }}>
     <CCard className="mb-4">
         <CCardBody>
           <CContainer className="py-5" fluid>
             <h1 className="display-5 fw-bold">Math Browser</h1>
             <p className="col-md-8 fs-4">
-              abc .
+              Math is kinda sus
             </p>
           </CContainer>
               <div className="h-100 p-5 text-white bg-dark rounded-3">
@@ -26,14 +28,16 @@ const Dashboard = () => {
               </div>
         </CCardBody>
       </CCard>
+      </Link> 
       </CCol> 
       <CCol md={4}>
+      <Link to={'/calendar'} style={{ color: '#3c4b64', textDecoration: 'none' }}>
       <CCard className="mb-4">
         <CCardBody>
           <CContainer className="py-5" fluid>
             <h1 className="display-5 fw-bold">2021 - 2022 Annotatable Calendar</h1>
             <p className="col-md-8 fs-4">
-              abc .
+              Calendars are kinda sus
             </p>
           </CContainer>
               <div className="h-100 p-5 text-white bg-dark rounded-3">
@@ -44,15 +48,17 @@ const Dashboard = () => {
                 </p>
               </div>
         </CCardBody>
-      </CCard>    
+      </CCard>   
+      </Link>
       </CCol> 
       <CCol md={4}>
+      <Link to={'/notebook'} style={{ color: '#3c4b64', textDecoration: 'none' }}>
       <CCard className="mb-4">
         <CCardBody>
           <CContainer className="py-5" fluid>
             <h1 className="display-5 fw-bold">Digital Notebook</h1>
             <p className="col-md-8 fs-4">
-              abc .
+              Books are kinda sus
             </p>
           </CContainer>
               <div className="h-100 p-5 text-white bg-dark rounded-3">
@@ -64,6 +70,7 @@ const Dashboard = () => {
               </div>
         </CCardBody>
       </CCard>
+      </Link>
       </CCol> 
       </CRow>
     </>
