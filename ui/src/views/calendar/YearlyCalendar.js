@@ -50,6 +50,7 @@ class YearlyCalendar extends Component {
     <div className="CalendarApp">
       <p className="App-intro">{this.state.apiResponse}</p>
       <p className="App-intro">{this.state.dbResponse}</p>
+      <p>po</p>
       <Calendar
         events={events}
       />

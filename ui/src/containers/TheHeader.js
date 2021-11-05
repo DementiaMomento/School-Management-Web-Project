@@ -10,6 +10,8 @@ import {
   CBreadcrumbRouter
 } from '@coreui/react'
 
+import { AppHeaderDropdown } from '../components/header/index'
+
 // routes config
 import routes from '../routes'
 
@@ -44,6 +46,10 @@ const TheHeader = () => {
         <CHeaderNavItem className="px-3" >
           <CHeaderNavLink to="/dashboard">Dashboard</CHeaderNavLink>
         </CHeaderNavItem>
+      </CHeaderNav>
+
+      <CHeaderNav className="ms-4" style={{marginRight: '38px'}}>
+        <AppHeaderDropdown />
       </CHeaderNav>
 
       <CSubheader className="px-3 justify-content-between">
