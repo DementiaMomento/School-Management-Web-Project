@@ -5,11 +5,11 @@ const data = {
   lanes: [
     {
       id: 'lane1',
-      title: 'Planned Tasks',
+      title: 'Types of Pills',
       label: '2/2',
       cards: [
-        {id: 'Card1', title: 'Write Blog', description: 'Can AI make memes', label: '30 mins', draggable: true},
-        {id: 'Card2', title: 'Pay Rent', description: 'Transfer via NEFT', label: '5 mins', metadata: {sha: 'be312a1'}}
+        {id: 'Card1', title: 'Normal', description: '電話無法1', label: '30 mins', draggable: true},
+        {id: 'Card2', title: '(Ab)Normal', description: 'Transfer via NEFT', label: '5 mins', metadata: {sha: 'be312a1'}}
       ]
     },
     {
