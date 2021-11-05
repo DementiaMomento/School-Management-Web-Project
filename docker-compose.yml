@@ -1,23 +1,29 @@
 version: '3.7'
 
 services:
-  # api:
-  #   container_name: api
-  #   build: ./api
-  #   expose:
-  #     - ${APP_SERVER_PORT}
-  #   environment:
-  #     API_HOST: ${API_HOST}
-  #     APP_SERVER_PORT: ${APP_SERVER_PORT}
-  #   ports:
-  #     - ${APP_SERVER_PORT}:8080
-  #   command: /api
+  api:
+    container_name: api
+    build: ./api
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - PORT=9000
+    ports:
+      - 9000:9000
+    volumes:
+      - ./api:/api
+      - /api/node_modules
+    depends_on:
+      - mongodb
+    networks:
+      - webappnetwork
 
   ui:
     container_name: ui
     build: ./ui
     environment:
       - REACT_APP_PORT=${REACT_APP_PORT}
+      - CHOKIDAR_USEPOLLING=true
+      - PORT=3000
     expose:
       - ${REACT_APP_PORT}
     ports:
@@ -27,3 +33,21 @@ services:
       - '/app/ui/node_modules'
     links:
       - api
+    networks:
+      - webappnetwork
+  
+  mongodb:
+    image: mongo:3.4.2
+    container_name: mongodb
+    volumes:
+      - ./database/db:/data/db
+      - ./database/dbconfig:/data/configdb
+    ports:
+      - 27017:27017
+    command: mongod
+    networks:
+      - webappnetwork
+
+networks:
+  webappnetwork:
+    driver: bridge

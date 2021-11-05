@@ -1,26 +1,21 @@
-FROM golang:1.16-alpine
+# Use a lighter version of Node as a parent image
+FROM node:13.12.0-alpine
 
-# Set destination for COPY
-RUN mkdir -p /app/api
-WORKDIR /app/api
+# Set the working directory to /api
+WORKDIR /api
 
-# Download Go modules
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
+# copy package.json into the container at /api
+COPY package*.json ./
+COPY package-lock.json ./
 
-# Copy the source code. Note the slash at the end, as explained in
-# https://docs.docker.com/engine/reference/builder/#copy
-COPY *.go ./
+# install dependencies
+RUN npm install
 
-# Build
-RUN go build -o /api
+# Copy the current directory contents into the container at /api
+COPY . /api/
 
-# (Optional) environment variable that our dockerised
-# application can make use of. The value of environment
-# variables can also be set via parameters supplied
-# to the docker command on the command line.
-#ENV HTTP_PORT=8081
+# Make port 80 available to the world outside this container
+EXPOSE 80
 
-# Run
-CMD [ "/api" ]
+# Run the app when the container launches
+CMD npm run watch

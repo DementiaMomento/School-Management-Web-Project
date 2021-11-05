@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CButton, CCard, CCardBody, CCardHeader, CCol, CContainer, CRow } from '@coreui/react'
+import { CCard, CCardBody, CCol, CContainer, CRow } from '@coreui/react'
 
 
 const Dashboard = () => {
-  console.log("CHECK");
-
   return (
     <>
     <CRow className="align-items-md-stretch">
