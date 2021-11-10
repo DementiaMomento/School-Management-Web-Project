@@ -19,4 +19,16 @@ router.get(
   controller.adminBoard
 );
 
+router.get(
+  "/events",
+  authJwt.verifyToken,
+  controller.events
+);
+
+router.get(
+  "/add_event",
+  authJwt.verifyToken,
+  controller.add_event
+);
+
 module.exports = router;

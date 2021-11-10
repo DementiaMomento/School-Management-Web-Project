@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = 'http://localhost:8080/api/test/';
+const API_URL = 'http://localhost:9000/api/user/';
 
 class UserService {
   getPublicContent() {
@@ -18,6 +18,14 @@ class UserService {
 
   getAdminBoard() {
     return axios.get(API_URL + 'admin', { headers: authHeader() });
+  }
+
+  getEvents() {
+    return axios.get(API_URL + 'events', { headers: authHeader() });
+  }
+
+  addEvent() {
+    return axios.get(API_URL + 'add_event', { headers: authHeader() });
   }
 }
 

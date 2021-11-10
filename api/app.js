@@ -49,7 +49,7 @@ db.mongoose
   });
 
 app.use("/api/auth", authRouter);
-app.use("/api/test/", userRouter);
+app.use("/api/user/", userRouter);
 
 function initial() {
   Role.estimatedDocumentCount((err, count) => {
